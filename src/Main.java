@@ -14,17 +14,31 @@ public class Main {
 
             DayOfTheWeek anotherWeekDay;
             anotherWeekDay = getRandomDay();
-            System.out.println("++++++++++++++++++++++++++++");
-            System.out.printf("Name is %s, Ordinal Value= %d%n", anotherWeekDay.name(), anotherWeekDay.ordinal());
 
-            if (anotherWeekDay == DayOfTheWeek.FRI) {
-                System.out.println("Found a Friday!!!");
+//            System.out.println("++++++++++++++++++++++++++++");
+//            System.out.printf("Name is %s, Ordinal Value= %d%n", anotherWeekDay.name(), anotherWeekDay.ordinal());
+//
+//            if (anotherWeekDay == DayOfTheWeek.FRI) {
+//                System.out.println("Found a Friday!!!");
+//
+//                break;
+//            }
 
-                break;
-            }
-
+            switchDayOfWeek(anotherWeekDay);
         }
 
+    }
+
+    public static void switchDayOfWeek(DayOfTheWeek weekDay) {
+
+        int weekDayInteger = weekDay.ordinal() + 1;
+        switch (weekDay){
+            case WED -> System.out.println("Wednesday is day " + weekDayInteger);
+//            case FRI -> System.out.println("Friday is day " + weekDayInteger);
+            case SAT -> System.out.println("Saturday is day " + weekDayInteger);
+            default -> System.out.println(weekDay.name().charAt(0) + weekDay.name().substring(1).toLowerCase() +
+                    "day is day " + weekDayInteger);
+        }
     }
 
     public static DayOfTheWeek getRandomDay(){
